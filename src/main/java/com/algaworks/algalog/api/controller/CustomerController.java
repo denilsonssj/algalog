@@ -3,8 +3,11 @@ package com.algaworks.algalog.api.controller;
 import java.util.List;
 import java.util.UUID;
 
+import javax.validation.Valid;
+
 import com.algaworks.algalog.api.repository.CustomerRepository;
 import com.algaworks.algalog.domain.model.Customer;
+import com.algaworks.algalog.domain.service.CustomerService;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,14 +29,15 @@ import lombok.AllArgsConstructor;
 public class CustomerController {
 
   private CustomerRepository customerRepository;
+  private CustomerService customerService;
 
   @GetMapping
   public List<Customer> list() {
-    return customerRepository.findAll();
+    return customerService.findAll();
   }
 
   @GetMapping("/{clientId}")
-  public ResponseEntity<Customer> getCustomer(@PathVariable UUID clientId) {
+  public ResponseEntity<Customer> getOne(@PathVariable UUID clientId) {
     return customerRepository.findById(clientId)
       .map(ResponseEntity::ok)
       .orElse(ResponseEntity.notFound().build());
@@ -41,14 +45,14 @@ public class CustomerController {
 
   @PostMapping
   @ResponseStatus(HttpStatus.CREATED)
-  public Customer createCustomer(@RequestBody Customer customer) {
-    return customerRepository.save(customer);
+  public Customer createCustomer(@Valid @RequestBody Customer customer) {
+    return customerService.save(customer);
   }
 
   @PutMapping("/{clientId}")
   @ResponseStatus(HttpStatus.CREATED)
   public ResponseEntity<Customer> updateCustomer(@PathVariable UUID clientId, 
-      @RequestBody Customer customer) {
+    @Valid @RequestBody Customer customer) {
         if (!customerRepository.existsById(clientId)) {
           return ResponseEntity.notFound().build();
         }
@@ -62,7 +66,7 @@ public class CustomerController {
     if (!customerRepository.existsById(clientId)) {
       return ResponseEntity.notFound().build();
     }
-    customerRepository.deleteById(clientId);
+    customerService.delete(clientId);
     return ResponseEntity.noContent().build();
   }
   

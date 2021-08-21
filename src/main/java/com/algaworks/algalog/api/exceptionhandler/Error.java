@@ -1,6 +1,6 @@
 package com.algaworks.algalog.api.exceptionhandler;
 
-import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -16,7 +16,7 @@ import lombok.Setter;
 public class Error {
 
   private Integer status;
-  private LocalDateTime timestamp;
+  private OffsetDateTime timestamp;
   private String title;
   private List<Field> fields;
 

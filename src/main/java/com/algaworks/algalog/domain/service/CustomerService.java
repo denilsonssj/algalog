@@ -18,6 +18,12 @@ public class CustomerService {
   private CustomerRepository customerRepository;
 
   @Transactional
+  public Customer search(UUID id) {
+    return customerRepository.findById(id)
+    .orElseThrow(() -> new DomainException("Customer not found!"));
+  }
+
+  @Transactional
   public Customer save(Customer customer) {
     boolean emailExists = customerRepository.findByEmail(customer.getEmail())
       .stream()

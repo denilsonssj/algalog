@@ -37,9 +37,8 @@ $ ./mvnw install -U clean
 ### Running the application
 
 ```
-./mvnw spring-boot:run
+$ ./mvnw spring-boot:run
 ``` 
-$ ./m
 
 ## Technologies and tools
 

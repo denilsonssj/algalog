@@ -1,4 +1,8 @@
-# Algalog
+<h1 align="center">Algalog</h1>
+
+<div>
+<img alt="Algalog" src=".github/preview.png" widht="100%">
+</div>
 
 ## Installation
 

@@ -19,7 +19,9 @@ import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 import lombok.AllArgsConstructor;
+import springfox.documentation.annotations.ApiIgnore;
 
+@ApiIgnore
 @AllArgsConstructor
 @ControllerAdvice
 public class ApiExceptionHandler extends ResponseEntityExceptionHandler {

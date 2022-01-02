@@ -1,12 +1,8 @@
-spring:
-    datasource:
+datasource:
+    config:
         url: "jdbc:postgresql://127.0.0.1:5432/algalog"
         username: "postgres"
         password: "postgres"
-    jpa:
-        database-platform: org.hibernate.dialect.PostgreSQL94Dialect
-        show-sql: false
-        hibernate:
-            ddl-auto: update
+        driver-classname: "org.postgresql.Driver"
 server:
     port: 8080

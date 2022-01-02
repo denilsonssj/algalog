@@ -1,12 +1,8 @@
-spring:
-    datasource:
+datasource:
+    config:
         url: ${DATABASE_URL}
         username: ${DATABASE_USERNAME}
         password: ${DATABASE_PASSWORD}
-    jpa:
-        database-platform: org.hibernate.dialect.PostgreSQL94Dialect
-        show-sql: false
-        hibernate:
-            ddl-auto: update
+        driver-classname: ${DATABASE_DRIVER_CLASSNAME}
 server:
     port: ${SERVER_PORT}

@@ -5,8 +5,8 @@ datasource:
         password: ${DATABASE_PASSWORD}
         driver-classname: ${DATABASE_DRIVER_CLASSNAME}
 springdoc:
-    version: "@org.springdoc.version@"
-    swagger-ui:
-        path: /swagger-ui
+  version: "@org.springdoc.version@"
+  swagger-ui:
+    path: /swagger-ui
 server:
     port: ${SERVER_PORT}

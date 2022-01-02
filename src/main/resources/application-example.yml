@@ -4,5 +4,9 @@ datasource:
         username: "postgres"
         password: "postgres"
         driver-classname: "org.postgresql.Driver"
+springdoc:
+  version: "@org.springdoc.version@"
+  swagger-ui:
+    path: /swagger-ui
 server:
     port: 8080
